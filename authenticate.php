@@ -4,7 +4,7 @@ session_start();
 $DATABASE_HOST = 'localhost';
 $DATABASE_USER = 'root';
 $DATABASE_PASS = 'root';
-$DATABASE_NAME = 'phplogin';
+$DATABASE_NAME = 'dressmart';
 // Try and connect using the info above.
 $con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
 if ( mysqli_connect_errno() ) {
@@ -17,7 +17,7 @@ if ( !isset($_POST['username'], $_POST['password']) ) {
 	exit('Please fill both the username and password fields!');
 }
 // Prepare our SQL, preparing the SQL statement will prevent SQL injection.
-if ($stmt = $con->prepare('SELECT id, password FROM accounts WHERE username = ?')) {
+if ($stmt = $con->prepare('SELECT id, password FROM users WHERE username = ?')) {
 	// Bind parameters (s = string, i = int, b = blob, etc), in our case the username is a string so we use "s"
 	$stmt->bind_param('s', $_POST['username']);
 	$stmt->execute();
