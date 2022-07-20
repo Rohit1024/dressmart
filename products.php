@@ -61,7 +61,7 @@
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $con = mysqli_connect("localhost", "root", "root", "phplogin");                                                            
+                                    $con = mysqli_connect("localhost", "root", "root", "dressmart");                                                            
                                     if (isset($_GET['search'])) {
                                         $filtervalues = $_GET['search'];
                                         $query = "SELECT * FROM products WHERE CONCAT(category, sub_category) LIKE '%$filtervalues%' ";
